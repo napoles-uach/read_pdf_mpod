@@ -15,7 +15,7 @@ st.title('Read PDF 4 MPOD')
 uploaded_file = st.file_uploader("Choose a file")
 
 
-@st.cache_data
+@st.cache_data(show_spinner="Leyendo pdf 🗎")
 def pdf_to_index(uploaded_file):
   reader = PdfReader(uploaded_file)
   st.write(len(reader.pages))
