@@ -38,5 +38,5 @@ if uploaded_file is not None:
   
   llm = OpenAI(temperature=0)
   st.text_input('Query','What is the title of the article?')
-  result = index.query(query)
-  st.write(result)
+  #result = index.query(query)
+  #st.write(result)
