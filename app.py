@@ -5,7 +5,9 @@ from langchain.llms import OpenAI
 from PyPDF2 import PdfReader
 
 import os
-os.environ["OPENAI_API_KEY"] =gpt_key
+os.environ["OPENAI_API_KEY"] =os.environ["gpt_key"]
+#openai.api_key = os.environ["gptkey"]
+
 st.title('Read PDF 4 MPOD')
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
