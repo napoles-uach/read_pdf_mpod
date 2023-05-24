@@ -4,6 +4,9 @@ from langchain.agents import initialize_agent
 from langchain.llms import OpenAI
 from PyPDF2 import PdfReader
 
+from langchain.document_loaders import TextLoader
+from langchain.indexes import VectorstoreIndexCreator
+
 import os
 os.environ["OPENAI_API_KEY"] =os.environ["gpt_key"]
 #openai.api_key = os.environ["gptkey"]
@@ -27,8 +30,13 @@ if uploaded_file is not None:
     for p in full_text:
       f.write(p)
   
-  from langchain.document_loaders import TextLoader
+
   loader = TextLoader("readme.txt")
+  
+  index = VectorstoreIndexCreator().from_loaders([loader])
    
   
-llm = OpenAI(temperature=0)
+  llm = OpenAI(temperature=0)
+  st.text_input('Query','What is the title of the article?')
+  result = index.query(query)
+  st.write(result)
