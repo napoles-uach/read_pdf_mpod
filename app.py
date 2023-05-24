@@ -15,9 +15,13 @@ if uploaded_file is not None:
   st.write(len(reader.pages))
   page = reader.pages
   full_text=[]
+  # loop para leer todas las paginas
   for p in page:
     text = p.extract_text()
     full_text.append(text)
-    full_text
+    # expander para ver el texto
+    with st.expander("See explanation"):
+      full_text
+   
   
 llm = OpenAI(temperature=0)
