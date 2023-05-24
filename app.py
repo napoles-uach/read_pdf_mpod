@@ -34,7 +34,7 @@ def pdf_to_index(uploaded_file):
       f.write(p)
  
 if uploaded_file is not None:
-  @st.cache_data
+  @st.cache_data()
   pdf_to_index(uploaded_file)
   
 
