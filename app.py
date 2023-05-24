@@ -14,6 +14,9 @@ os.environ["OPENAI_API_KEY"] =os.environ["gpt_key"]
 st.title('Read PDF 4 MPOD')
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
+
+  
+def pdf_to_index(uploaded_file)
   reader = PdfReader(uploaded_file)
   st.write(len(reader.pages))
   page = reader.pages
@@ -29,6 +32,8 @@ if uploaded_file is not None:
   with open('readme.txt', 'w') as f:
     for p in full_text:
       f.write(p)
+      
+  pdf_to_index(uploaded_file)
   
 
   loader = TextLoader("readme.txt")
