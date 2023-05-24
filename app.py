@@ -20,8 +20,15 @@ if uploaded_file is not None:
     text = p.extract_text()
     full_text.append(text)
   # expander para ver el texto
-  with st.expander("See explanation"):
+  with st.expander("Texto extraido"):
     full_text
+  # guarda el texto a archivo
+  with open('readme.txt', 'w') as f:
+    for p in full_text:
+      f.write(p)
+  
+  from langchain.document_loaders import TextLoader
+  loader = TextLoader("readme.txt")
    
   
 llm = OpenAI(temperature=0)
