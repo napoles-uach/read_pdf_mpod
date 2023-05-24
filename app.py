@@ -15,7 +15,7 @@ st.title('Read PDF 4 MPOD')
 uploaded_file = st.file_uploader("Choose a file")
 
 
-  
+@st.cache_data
 def pdf_to_index(uploaded_file):
   reader = PdfReader(uploaded_file)
   st.write(len(reader.pages))
@@ -34,7 +34,6 @@ def pdf_to_index(uploaded_file):
       f.write(p)
  
 if uploaded_file is not None:
-  @st.cache_data()
   pdf_to_index(uploaded_file)
   
 
