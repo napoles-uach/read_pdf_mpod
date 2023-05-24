@@ -16,7 +16,7 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
 
   
-def pdf_to_index(uploaded_file)
+def pdf_to_index(uploaded_file):
   reader = PdfReader(uploaded_file)
   st.write(len(reader.pages))
   page = reader.pages
